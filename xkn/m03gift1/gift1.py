@@ -60,4 +60,3 @@ with open("gift1.out",'w') as fw:
         print(outstr)
         fw.write(outstr)
 
-

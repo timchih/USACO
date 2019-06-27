@@ -45,6 +45,8 @@ for i in range(nyear):
 
 
 
+
+
 outstr=str(week_13_num[6])
 
 with open("friday.out",'w') as fw:

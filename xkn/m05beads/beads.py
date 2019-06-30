@@ -11,27 +11,35 @@ print(blen)
 beads=f.readline()
 print(beads)
 
-cutedbeads=[]
-maxbeads=0
+bcolors=[]
 
 def cutbeads(cutpoint):
     global beads
-    global cutedbeads
-    for c in beads:
-        #TBD
+    cutedbeads=[]
+    for i in range(blen):
+        pos=(i+cutpoint)%blen
+        c=beads[pos]
         cutedbeads.append(c)
+    print("cutedbeads:",cutedbeads)
+    print("\n")
     return cutedbeads
 
-def getbeads():
-    return 8
+def countbeadscolor(cb):
+    cblen=len(cb)
+    headc=0
+    tailc=0
+    hcolor=cb[0]
+    count=headc+tailc
+    return count
 
-#breakpoint 0 means in front of first beads which is 1
-for breakpoint in range(blen):
-    cutbeads(breakpoint)
-    num=getbeads()
-    if num>maxbeads:
-        maxbeads=num
+#bp 0 means in front of first beads
+#cb stands for cutted beads
+for bp in range(blen):
+    cb=cutbeads(bp)
+    num=countbeadscolor(cb)
+    bcolors.append(num)
 
+maxbeads=max(bcolors)
 outstr=str(maxbeads)
 
 with open("beads.out",'w') as fw:
